@@ -52,7 +52,7 @@ class Autoencoder(nn.Module):
         decoded = self.decoder(encoded)
         return encoded, decoded
 
-# 初始化自编码器
+
 input_dim = X_train.shape[1]
 hidden_dim = 128
 code_dim = 54
@@ -60,7 +60,7 @@ autoencoder = Autoencoder(input_dim, hidden_dim, code_dim).to(device)
 criterion = nn.MSELoss()
 optimizer = optim.Adam(autoencoder.parameters(), lr=0.001)
 
-# 训练自编码器
+
 epochs = 200
 X_train_tensor = torch.tensor(X_train, dtype=torch.float32).to(device)
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32).to(device)
